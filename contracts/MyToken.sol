@@ -58,4 +58,30 @@ contract MyToken is Initializable, ERC20Upgradeable, ERC20BurnableUpgradeable, E
     {
         super._update(from, to, value);
     }
+
+    // Additional required functions for ERC20 standard
+
+    function totalSupply() public view override returns (uint256) {
+        return super.totalSupply();
+    }
+
+    function balanceOf(address account) public view override returns (uint256) {
+        return super.balanceOf(account);
+    }
+
+    function transfer(address recipient, uint256 amount) public override returns (bool) {
+        return super.transfer(recipient, amount);
+    }
+
+    function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool) {
+        return super.transferFrom(sender, recipient, amount);
+    }
+
+    function approve(address spender, uint256 amount) public override returns (bool) {
+        return super.approve(spender, amount);
+    }
+
+    function allowance(address owner, address spender) public view override returns (uint256) {
+        return super.allowance(owner, spender);
+    }
 }
