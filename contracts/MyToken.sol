@@ -28,6 +28,10 @@ contract MyToken is Initializable, ERC20Upgradeable, ERC20BurnableUpgradeable, E
             transferOwnership(initialOwner);
     }
 
+    function decimals() public view virtual override returns (uint8) {
+        return 4;
+    }
+
     function pause() public onlyOwner {
         _pause();
     }
