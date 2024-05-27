@@ -22,6 +22,10 @@ contract MyToken is Initializable, ERC20Upgradeable, ERC20BurnableUpgradeable, E
         __Ownable_init(initialOwner);
         __ERC20Permit_init("Inari");
         __UUPSUpgradeable_init();
+    
+        uint256 initialSupply = 1000000 * 10**decimals();
+            _mint(initialOwner, initialSupply);
+            transferOwnership(initialOwner);
     }
 
     function pause() public onlyOwner {
